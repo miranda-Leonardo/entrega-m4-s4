@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { IUserRequest } from "../interfaces/users";
-import { createUserService } from "../services/createUser.service";
-import { listUserService } from "../services/listUser.service";
+import { createUserService } from "../services/users/createUser.service";
+import { listUserService } from "../services/users/listUser.service";
 
 const createUserController = async (req: Request, res: Response) => {
     const userData: IUserRequest = req.body;
