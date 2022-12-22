@@ -11,7 +11,7 @@ const ensureIsAdmMiddleware = async (req: Request, res: Response, next: NextFunc
     const user = await userRepository.findOneBy({id: id});
 
     if(!user?.isAdm) {
-        throw new AppError('You are not admin!', 404);
+        throw new AppError('You are not admin!', 403);
     }
 
     return next();

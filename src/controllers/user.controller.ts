@@ -27,7 +27,7 @@ const updateUserController = async (req: Request, res: Response) => {
 const deleteUserController = async (req: Request, res: Response) => {
     const userId: string = req.params.id;
     const deleteUser = await deleteUserService(userId);
-    return res.json(deleteUser);
+    return res.status(204).json(deleteUser);
 };
 
 export { createUserController, listUserController, updateUserController, deleteUserController };
