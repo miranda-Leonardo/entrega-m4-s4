@@ -11,13 +11,13 @@ const ensureAuthMiddleware = async (req: Request, res: Response, next: NextFunct
 
     token = token.split(' ')[1];
 
-    jwt.verify( token, process.env.SECRET_KEY, (error: any, decoded: any) => {
+    jwt.verify( token, String(process.env.SECRET_KEY), (error: any, decoded: any) => {
         if( error ) {
             return res.status(401).json({ message: error.message });
         };
 
         req.user = {
-            id: decoded.sub as number
+            id: decoded.sub
         };
 
         return next();

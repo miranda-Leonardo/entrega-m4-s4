@@ -10,12 +10,12 @@ const userCreateSerializer: SchemaOf<IUserRequest> = yup.object().shape({
 });
 
 const userResponseSerializer: SchemaOf<IUser> = yup.object().shape({
-    id: yup.string().notRequired(),
-    name: yup.string().notRequired(),
-    email: yup.string().email().notRequired(),
-    isAdm: yup.boolean().notRequired(),
-    createdAt: yup.date().notRequired(),
-    updatedAt: yup.date().notRequired()
+    id: yup.string().required(),
+    name: yup.string().required(),
+    email: yup.string().email().required(),
+    isAdm: yup.boolean().required(),
+    createdAt: yup.date().required(),
+    updatedAt: yup.date().required()
 });
 
 const userUpdateSerializer: SchemaOf<IUserUpdate> = yup.object().shape({
