@@ -19,10 +19,12 @@ const userResponseSerializer: SchemaOf<IUserCreateResponse> = yup.object().shape
     isActive: yup.boolean().required()
 });
 
+const listUserSerializer: SchemaOf<IUserCreateResponse[]> = yup.array(userResponseSerializer)
+
 const userUpdateSerializer: SchemaOf<IUserUpdate> = yup.object().shape({
     name: yup.string().notRequired(),
     email: yup.string().email().notRequired(),
     password: yup.string().notRequired()
 });
 
-export { userCreateSerializer, userResponseSerializer, userUpdateSerializer };
+export { userCreateSerializer, userResponseSerializer, listUserSerializer, userUpdateSerializer };
